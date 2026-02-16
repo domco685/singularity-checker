@@ -12,7 +12,11 @@ body {
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-cyber-blue via-cyber-purple to-cyber-blue bg-clip-text text-transparent;
+    background: linear-gradient(to right, #00D9FF, #B026FF, #00D9FF);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
   }
   
   .holographic-border {
