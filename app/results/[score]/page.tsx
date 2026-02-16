@@ -150,6 +150,17 @@ export default function ResultsPage() {
             </p>
             
             <div className="border-t border-cyber-blue/30 my-4" />
+            
+            <p className="text-center">
+              <a 
+                href="https://shisharka.org" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-cyber-purple hover:text-cyber-blue font-bold transition-colors inline-flex items-center gap-2"
+              >
+                Join the Post-AI humanism movement: SHISHARKA.ORG →
+              </a>
+            </p>
           </div>
         </motion.div>
 
