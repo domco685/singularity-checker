@@ -43,7 +43,7 @@ export default function MemeCard({
   
   return (
     <motion.div
-      className="relative group"
+      className="relative group w-full md:w-64 flex-shrink-0"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1 }}

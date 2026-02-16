@@ -28,7 +28,7 @@ export default function ResultsPage() {
     <main className="relative min-h-screen p-4 py-16">
       <Scanline />
       
-      <div className="relative z-10 max-w-4xl mx-auto">
+      <div className="relative z-10 max-w-2xl mx-auto">
         {/* Score Display */}
         <motion.div
           className="text-center mb-12"
@@ -195,7 +195,7 @@ export default function ResultsPage() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="flex flex-col md:flex-row gap-4 justify-center items-stretch overflow-x-auto pb-4">
             {getMemesForScore(score, status).map((template, index) => (
               <MemeCard
                 key={template.style}
