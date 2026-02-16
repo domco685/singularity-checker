@@ -5,7 +5,10 @@ import { useParams, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import Scanline from '@/components/Scanline';
 import NeonButton from '@/components/NeonButton';
+import MemeCard from '@/components/MemeCard';
 import { getScoreStatus, getCategoryScores, getDynamicMessage } from '@/lib/quiz-data';
+import { getMemesForScore } from '@/lib/meme-templates';
+import { shareToTwitter, downloadMeme } from '@/components/ShareButton';
 
 export default function ResultsPage() {
   const params = useParams();
@@ -176,12 +179,43 @@ export default function ResultsPage() {
           </Link>
         </motion.div>
 
+        {/* Meme Generator Section */}
+        <motion.div
+          className="mb-12"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.7 }}
+        >
+          <div className="text-center mb-8">
+            <h2 className="text-3xl md:text-4xl font-mono font-bold text-cyber-purple mb-3">
+              SHARE YOUR SCORE
+            </h2>
+            <p className="text-cyber-text/70 font-mono">
+              Pick your favorite meme and share on X
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {getMemesForScore(score, status).map((template, index) => (
+              <MemeCard
+                key={template.style}
+                template={template}
+                score={score}
+                status={status}
+                index={index}
+                onDownload={downloadMeme}
+                onShare={shareToTwitter}
+              />
+            ))}
+          </div>
+        </motion.div>
+
         {/* SHISHARKA Bridge */}
         <motion.div
           className="text-center p-8 border-2 border-cyber-purple/20 bg-cyber-black/30"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.7 }}
+          transition={{ delay: 2.0 }}
         >
           <p className="text-cyber-text/70 mb-4">
             This project is supported by <span className="text-cyber-purple font-bold">SHISHARKA</span> -{' '}
