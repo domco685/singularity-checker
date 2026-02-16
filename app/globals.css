@@ -5,7 +5,9 @@
 @tailwind utilities;
 
 body {
-  @apply bg-cyber-black text-cyber-text font-sans;
+  background-color: #000000;
+  color: #E0E0E0;
+  font-family: Inter, system-ui, sans-serif;
 }
 
 @layer utilities {
