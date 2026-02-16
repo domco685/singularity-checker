@@ -190,8 +190,11 @@ export default function ResultsPage() {
             <h2 className="text-3xl md:text-4xl font-mono font-bold text-cyber-purple mb-3">
               SHARE YOUR SCORE
             </h2>
-            <p className="text-cyber-text/70 font-mono">
+            <p className="text-cyber-text/70 font-mono mb-2">
               Pick your favorite meme and share on X
+            </p>
+            <p className="text-cyber-text/50 font-mono text-sm">
+              (Clicking "Share on X" will auto-download the meme - just attach it to your tweet!)
             </p>
           </div>
           
