@@ -11,7 +11,7 @@ interface MemeCardProps {
   status: string;
   index: number;
   onDownload: (dataUrl: string, score: number) => void;
-  onShare: (message: string, score: number, status: string) => void;
+  onShare: (message: string, score: number, status: string, dataUrl?: string) => void;
 }
 
 export default function MemeCard({
@@ -38,7 +38,7 @@ export default function MemeCard({
   };
   
   const handleShare = () => {
-    onShare(template.message, score, status);
+    onShare(template.message, score, status, preview);
   };
   
   return (

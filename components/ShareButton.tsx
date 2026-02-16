@@ -1,6 +1,19 @@
 'use client';
 
-export function shareToTwitter(message: string, score: number, status: string) {
+export function shareToTwitter(message: string, score: number, status: string, dataUrl?: string) {
+  // Auto-download meme if provided
+  if (dataUrl) {
+    downloadMeme(dataUrl, score);
+    // Small delay before opening Twitter to ensure download starts
+    setTimeout(() => {
+      openTwitterIntent(message, score, status);
+    }, 300);
+  } else {
+    openTwitterIntent(message, score, status);
+  }
+}
+
+function openTwitterIntent(message: string, score: number, status: string) {
   const text = encodeURIComponent(
     `I just took the Singularity Check 🤖\n\n` +
     `Humanity Score: ${score}/100\n` +
