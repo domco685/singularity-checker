@@ -27,9 +27,8 @@ export default function CheckPage() {
         setCurrentQuestion(currentQuestion + 1);
         setSelectedAnswer(null);
       } else {
-        // Quiz complete, calculate score and redirect
-        const score = calculateScore(newAnswers);
-        router.push(`/results/${score}?answers=${newAnswers.join(',')}`);
+        // Quiz complete, redirect to landing page
+        window.location.href = 'https://preview--become-now-map.lovable.app/identity-shift/quit-drinking';
       }
     }, 300);
   };
