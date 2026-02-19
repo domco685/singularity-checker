@@ -27,8 +27,21 @@ export default function CheckPage() {
         setCurrentQuestion(currentQuestion + 1);
         setSelectedAnswer(null);
       } else {
-        // Quiz complete, redirect to landing page
-        window.location.href = 'https://preview--become-now-map.lovable.app/identity-shift/quit-drinking';
+        // Quiz complete, redirect to landing page with params preserved
+        const currentParams = new URLSearchParams(window.location.search);
+        const targetUrl = new URL('https://dailygrowthmap.com/identity-shift/quit-drinking');
+        
+        // Preserve UTM params from ad
+        currentParams.forEach((value, key) => {
+          if (key.startsWith('utm_') || key === 'fbclid') {
+            targetUrl.searchParams.set(key, value);
+          }
+        });
+        
+        // Add signup trigger for Lovable banner
+        targetUrl.searchParams.set('from', 'signup');
+        
+        window.location.href = targetUrl.toString();
       }
     }, 300);
   };
